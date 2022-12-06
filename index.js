@@ -24,11 +24,15 @@ const main = async () => {
     );
 
     const app = express();
-
+    app.use(express.json());
     // Middlewares
     app.use(cors());
-
-    app.use(express.json());
+    
+    
+    app.get('/', (req, res) => {
+        res.send('Welcome to our Stackoverflow clone App!')
+    });
+    
     app.use(helmet());
     app.use(morgan("common"));
 
